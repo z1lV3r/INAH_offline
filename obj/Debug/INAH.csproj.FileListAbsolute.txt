@@ -1,0 +1,17 @@
+D:\WPF\INAH\bin\Debug\INAH.exe.config
+D:\WPF\INAH\bin\Debug\INAH.exe
+D:\WPF\INAH\bin\Debug\INAH.pdb
+D:\WPF\INAH\obj\Debug\INAH.csprojResolveAssemblyReference.cache
+D:\WPF\INAH\obj\Debug\MainWindow.g.cs
+D:\WPF\INAH\obj\Debug\App.g.cs
+D:\WPF\INAH\obj\Debug\INAH_MarkupCompile.cache
+D:\WPF\INAH\obj\Debug\INAH_MarkupCompile.lref
+D:\WPF\INAH\obj\Debug\MainWindow.baml
+D:\WPF\INAH\obj\Debug\INAH.g.resources
+D:\WPF\INAH\obj\Debug\INAH.Properties.Resources.resources
+D:\WPF\INAH\obj\Debug\INAH.csproj.GenerateResource.Cache
+D:\WPF\INAH\obj\Debug\INAH.csproj.CoreCompileInputs.cache
+D:\WPF\INAH\obj\Debug\INAH.exe
+D:\WPF\INAH\obj\Debug\INAH.pdb
+D:\WPF\INAH\obj\Debug\DetalleWindow.g.cs
+D:\WPF\INAH\obj\Debug\DetalleWindow.baml
