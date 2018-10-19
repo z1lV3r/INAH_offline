@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:INAH"
         mc:Ignorable="d"
-        Title="Detalle de artículo" Height="664.474" Width="1286.355" MinWidth="942.105" MinHeight="664.474" WindowStartupLocation="CenterScreen">
+        Title="Detalle de artículo" Height="1105.474" Width="1286.355" MinWidth="942.105" MinHeight="664.474" WindowStartupLocation="CenterScreen">
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" Height="22" >
         </StatusBar>
@@ -15,384 +15,433 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            
+
             <!-- Caracteristicas en panel izquierdo -->
-            <StackPanel>
+            <StackPanel Margin="10,0">
                 <!-- Imagen de la pieza -->
-                <Image></Image>
+                <Image Height="350" Width="Auto"/>
                 <!-- Acervo -->
-                <Label Content="Acervo" />
+                <Label Content="Acervo" Style="{StaticResource TitleCategoriaStyle}" />
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Tipo: " />
+                    <Label Content="Tipo: " Style="{StaticResource TitleStyle}"/>
                     <ListBox></ListBox>
                 </StackPanel>
                 <!-- Conservación -->
-                <Label Content="Conservación" />
-                <Label Content="Estado de la conservación:" />
+                <Label Content="Conservación" Style="{StaticResource TitleCategoriaStyle}"/>
+                <Label Content="Estado de la conservación:" Style="{StaticResource TitleStyle}"/>
                 <ListBox></ListBox>
-                <!-- Acervo -->
-                <Label Content="Avalúo" />
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="$" Grid.Column="0"/>
-                    <TextBox Width="Auto" Grid.Column="1"/>
-                    <Label Content="MXN" Grid.Column="2"/>
-                </Grid>
+                <!-- Avalúo -->
+                <Label Content="Avalúo" Style="{StaticResource TitleCategoriaStyle}"/>
+
+                <DockPanel Grid.Column="0" Grid.Row="1">
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                        <Label Content="Avalúo:" Style="{StaticResource TitleStyle}"/>
+                        <Image Source="img/help.png" Width="12" Height="12" />
+                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="$" Grid.Column="0" Style="{StaticResource PreSymbolStyle}"/>
+                        <TextBox Width="Auto" Grid.Column="1" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                        <Label Content="MXN" Grid.Column="2" Style="{StaticResource PostSymbolStyle}"/>
+                    </Grid>
+                </DockPanel>
             </StackPanel>
-            
+
             <!-- Detalle de la pieza en panel derecho -->
-            <Grid Grid.Column="2" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <!-- Número de inventario -->
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Label Content="Número de inventario: " />
-                    <Label Content="12345678" />
-                </StackPanel>
-
-                <!-- Numeros -->
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <Grid Margin="10,0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Label Content="Numeros" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" />
 
-                    <DockPanel Grid.Column="0" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Número de catálogo:" />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
+                    <!-- Número de inventario -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Label Content="Número de inventario:" FontSize="16" FontWeight="Bold" />
+                        <Label Content="12345678" FontSize="16" />
+                    </StackPanel>
 
-                    <DockPanel Grid.Column="1" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Número de registro: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-                    
-                    <DockPanel Grid.Column="2" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Otros números: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
+                    <!-- Numeros -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Numeros" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitleCategoriaStyle}" Margin="0,0,0,2"/>
+
+                        <DockPanel Grid.Column="0" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Número de catálogo:" Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Número de registro: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="2" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Otros números: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Descripción básica -->
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Descripción básica" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitleCategoriaStyle}"/>
+
+                        <DockPanel Grid.Column="0" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Tipo de objeto:* " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Nombre o tema:* " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="2" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Autor: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="0" Grid.Row="2">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Epoca: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}"/>
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="2">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Cultura: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}"/>
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="2" Grid.Row="2">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Lugar de origen: " Style="{StaticResource TitleStyle}" />
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}"/>
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Composición -->
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Composición" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitleCategoriaStyle}"/>
+
+                        <DockPanel Grid.Column="0" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Material constitutivo:* " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxComposicionStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Técnica de maufactura: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxComposicionStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="2" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Técnica decorativa: " Style="{StaticResource TitleStyle}" />
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxComposicionStyle}" />
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Adquisición -->
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Adquisición" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource TitleCategoriaStyle}"/>
+
+                        <DockPanel Grid.Column="0" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Procedencia: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Método de adquisición: " Style="{StaticResource TitleStyle}" />
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Ubicación -->
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Ubicación" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource TitleCategoriaStyle}"/>
+
+                        <DockPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Ubicación: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Verificación -->
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Verificación" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitleCategoriaStyle}"/>
+
+                        <DockPanel Grid.Column="0" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Piezas que ampara este registro: " Style="{StaticResource TitleStyle}"/>
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Verificado: " Style="{StaticResource TitleStyle}"/>
+                            </StackPanel>
+                            <CheckBox />
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Medidas -->
+                    <Grid Grid.Row="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Medidas" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Style="{StaticResource TitleCategoriaStyle}" />
+
+                        <DockPanel Grid.Column="0" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="↕ Alto: " Style="{StaticResource TitleStyle}" />
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <Grid Style="{StaticResource GridMedidasItemStyle}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <Label Content=" cm" Grid.Column="1" Style="{StaticResource PostSymbolStyle}" />
+                            </Grid>
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="↔ Largo: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <Grid Style="{StaticResource GridMedidasItemStyle}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <Label Content=" cm" Grid.Column="1" Style="{StaticResource PostSymbolStyle}"/>
+                            </Grid>
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="2" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="➚ Espesor: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <Grid Style="{StaticResource GridMedidasItemStyle}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <Label Content=" cm" Grid.Column="1" Style="{StaticResource PostSymbolStyle}"/>
+                            </Grid>
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="3" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Diámetro: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <Grid Style="{StaticResource GridMedidasItemStyle}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <Label Content=" cm" Grid.Column="1" Style="{StaticResource PostSymbolStyle}"/>
+                            </Grid>
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="4" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Peso: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <Grid Style="{StaticResource GridMedidasItemStyle}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <Label Content=" gr" Grid.Column="1" Style="{StaticResource PostSymbolStyle}"/>
+                            </Grid>
+                        </DockPanel>
+                    </Grid>
+
+                    <!-- Descripción visual -->
+                    <Grid Grid.Row="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Descripción visual" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource TitleCategoriaStyle}"/>
+
+                        <DockPanel Grid.Column="0" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Forma: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDescripcionVisualStyle}"/>
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Inscripciones: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDescripcionVisualStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="0" Grid.Row="2">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Descripción: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDescripcionVisualStyle}" />
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1" Grid.Row="2">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <Label Content="Observaciones: " Style="{StaticResource TitleStyle}"/>
+                                <Image Source="img/help.png" Width="12" Height="12" />
+                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                            </StackPanel>
+                            <TextBox Style="{StaticResource TextBoxDescripcionVisualStyle}" />
+                        </DockPanel>
+                    </Grid>
                 </Grid>
-
-                <!-- Descripción básica -->
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Content="Descripción básica" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" />
-
-                    <DockPanel Grid.Column="0" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Tipo de objeto:* " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="1" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Nombre o tema:* " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="2" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Autor: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="0" Grid.Row="2">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Epoca: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="1" Grid.Row="2">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Cultura: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="2" Grid.Row="2">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Lugar de origen: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-                </Grid>
-
-                <!-- Composición -->
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Content="Composición" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" />
-
-                    <DockPanel Grid.Column="0" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Material constitutivo:* " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="1" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Técnica de maufactura: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="2" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Técnica decorativa: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-                </Grid>
-
-                <!-- Adquisición -->
-                <Grid Grid.Row="4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Content="Adquisición" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" />
-
-                    <DockPanel Grid.Column="0" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Procedencia: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="1" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Método de adquisición: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-                </Grid>
-
-                <!-- Ubicación -->
-                <Grid Grid.Row="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Content="Ubicación" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" />
-
-                    <DockPanel Grid.Column="1" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Ubicación: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-                </Grid>
-
-                <!-- Verificación -->
-                <Grid Grid.Row="6">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Content="Verificación" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" />
-
-                    <DockPanel Grid.Column="0" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Piezas que ampara este \nregistro: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="1" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Verificado: " />
-                        </StackPanel>
-                        <CheckBox />
-                    </DockPanel>
-                </Grid>
-
-                <!-- Medidas -->
-                <Grid Grid.Row="7">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Content="Medidas" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" />
-
-                    <DockPanel Grid.Column="0" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="↕ Alto: " />
-                        </StackPanel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox Width="Auto" Grid.Column="1"/>
-                            <Label Content=" cm" Grid.Column="2"/>
-                        </Grid>
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="1" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="↔ Largo: " />
-                        </StackPanel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox Width="Auto" Grid.Column="1"/>
-                            <Label Content=" cm" Grid.Column="2"/>
-                        </Grid>
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="2" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="➚ Espesor: " />
-                        </StackPanel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox Width="Auto" Grid.Column="1"/>
-                            <Label Content=" cm" Grid.Column="2"/>
-                        </Grid>
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="3" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Diámetro: " />
-                        </StackPanel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox Width="Auto" Grid.Column="1"/>
-                            <Label Content=" cm" Grid.Column="2"/>
-                        </Grid>
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="4" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Peso: " />
-                        </StackPanel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox Width="Auto" Grid.Column="1"/>
-                            <Label Content=" gr" Grid.Column="2"/>
-                        </Grid>
-                    </DockPanel>
-                </Grid>
-
-                <!-- Descripción visual -->
-                <Grid Grid.Row="8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Content="Descripción visual" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" />
-
-                    <DockPanel Grid.Column="0" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Forma: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="1" Grid.Row="1">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Inscripciones: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="0" Grid.Row="2">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Descripción: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-
-                    <DockPanel Grid.Column="1" Grid.Row="2">
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Observaciones: " />
-                        </StackPanel>
-                        <TextBox Height="Auto" Width="Auto" />
-                    </DockPanel>
-                </Grid>
-            </Grid>
+            </ScrollViewer>
         </Grid>
     </DockPanel>
 </Window>
