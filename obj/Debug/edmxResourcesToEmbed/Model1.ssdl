@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="INAHModel.Store" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adquisiciones">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Metodo_de_adquisicion" Type="nvarchar" MaxLength="900" />
+    <Property Name="Fecha_de_adquisicion" Type="datetime" />
+    <Property Name="Fuente_de_adquisicion" Type="nvarchar" MaxLength="900" />
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Procedencia" Type="nvarchar" MaxLength="900" />
+  </EntityType>
+  <EntityType Name="bajas">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Documentacion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="composicion">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Materia_prima" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tecnica_de_manufactura" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tecnica_decorativa" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="credentials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Key" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="descripcion_basica">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Tipo_de_objeto" Type="nvarchar" MaxLength="250" />
+    <Property Name="Nombre_o_tema" Type="nvarchar" MaxLength="300" />
+    <Property Name="Autor" Type="nvarchar" MaxLength="250" />
+    <Property Name="Editor" Type="nvarchar" MaxLength="100" />
+    <Property Name="Taller_imprenta" Type="nvarchar" MaxLength="100" />
+    <Property Name="Marca" Type="nvarchar" MaxLength="100" />
+    <Property Name="Denominacion" Type="nvarchar" MaxLength="20" />
+    <Property Name="Epoca" Type="nvarchar" MaxLength="255" />
+    <Property Name="Cultura" Type="nvarchar" MaxLength="255" />
+    <Property Name="Fecha_pieza" Type="nvarchar" MaxLength="100" />
+    <Property Name="Origen" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tema" Type="nvarchar" MaxLength="100" />
+    <Property Name="Forma" Type="nvarchar" MaxLength="255" />
+    <Property Name="Descripcion" Type="ntext" />
+    <Property Name="Observaciones" Type="ntext" />
+    <Property Name="Conservacion" Type="int" />
+    <Property Name="Inscripciones" Type="ntext" />
+    <Property Name="Acervo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Avaluo" Type="int" />
+  </EntityType>
+  <EntityType Name="entidades">
+    <Key>
+      <PropertyRef Name="Id_entidad" />
+    </Key>
+    <Property Name="Id_entidad" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Slug" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="imagenes">
+    <Key>
+      <PropertyRef Name="idimagenes" />
+    </Key>
+    <Property Name="idimagenes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" />
+    <Property Name="url" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="medidas">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Alto" Type="real" />
+    <Property Name="Largo" Type="real" />
+    <Property Name="Ancho" Type="real" />
+    <Property Name="Diametro" Type="real" />
+    <Property Name="Peso" Type="real" />
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="modificaciones">
+    <Key>
+      <PropertyRef Name="Id_cambio" />
+    </Key>
+    <Property Name="Id_cambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_de_cambio" Type="datetime" Nullable="false" />
+    <Property Name="Id_persona" Type="int" Nullable="false" />
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Campo" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Valor_anterior" Type="ntext" />
+    <Property Name="Valor_actual" Type="ntext" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="movimiento_pieza">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="NI" Type="nvarchar" MaxLength="100" />
+    <Property Name="NA" Type="nvarchar" MaxLength="100" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" />
+    <Property Name="Numero_de_autorizacion" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="museos">
+    <Key>
+      <PropertyRef Name="Clave_de_museo" />
+    </Key>
+    <Property Name="Clave_de_museo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Id_entidad" Type="int" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="150" />
+    <Property Name="Slug" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="permitir_modificar">
+    <Key>
+      <PropertyRef Name="Clave_de_museo" />
+      <PropertyRef Name="Id_persona" />
+    </Key>
+    <Property Name="Clave_de_museo" Type="int" Nullable="false" />
+    <Property Name="Id_persona" Type="int" Nullable="false" />
+    <Property Name="Modificar" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="piezas">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Clave_de_museo" Type="int" Nullable="false" />
+    <Property Name="Folio_real" Type="nvarchar" MaxLength="150" />
+    <Property Name="Numero_de_registro" Type="nvarchar" MaxLength="150" />
+    <Property Name="Numero_de_catalogo" Type="nvarchar" MaxLength="150" />
+    <Property Name="Otro_numero" Type="nvarchar" MaxLength="150" />
+    <Property Name="Control_interno" Type="tinyint" />
+    <Property Name="Cantidad_ampara" Type="int" />
+    <Property Name="NI" Type="int" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="flag" Type="tinyint" />
+    <Property Name="deleted_at" Type="datetime" />
+    <Property Name="id_ubicacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="Verificacion_por_centro_de_trabajo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="piezas_verificaciones">
+    <Key>
+      <PropertyRef Name="idpiezas_verificaciones" />
+    </Key>
+    <Property Name="idpiezas_verificaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" />
+    <Property Name="Id_verificacion" Type="nvarchar" MaxLength="25" />
+    <Property Name="Id_persona" Type="int" />
+    <Property Name="Fecha_verificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ubicaciones">
+    <Key>
+      <PropertyRef Name="Id_ubicacion" />
+    </Key>
+    <Property Name="Id_ubicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ubicacion_Actual" Type="nvarchar" MaxLength="150" />
+    <Property Name="Fecha_de_ubicacion" Type="datetime" />
+    <Property Name="Tipo_de_ubicacion" Type="nvarchar" MaxLength="150" />
+    <Property Name="Ubicacion_normal" Type="nvarchar" MaxLength="150" />
+    <Property Name="Numero_de_inventario" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="remember_token" Type="nvarchar" MaxLength="100" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="clave_de_museo" Type="int" />
+    <Property Name="role" Type="int" />
+    <Property Name="area" Type="nvarchar" MaxLength="100" />
+    <Property Name="apellidos" Type="nvarchar" MaxLength="45" />
+    <Property Name="Id_verificacion" Type="nvarchar" MaxLength="25" />
+    <Property Name="Id_entidad" Type="int" />
+    <Property Name="acreditado_editar" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="verificaciones">
+    <Key>
+      <PropertyRef Name="Id_verificacion" />
+    </Key>
+    <Property Name="Id_verificacion" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Clave_de_museo" Type="int" Nullable="false" />
+    <Property Name="Fecha_de_inicio" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_de_termino" Type="datetime" Nullable="false" />
+    <Property Name="Ruta_acta" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__adquisiciones__0000000000000267">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="adquisiciones" Type="Self.adquisiciones" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="adquisiciones">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__bajas__000000000000021E">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="bajas" Type="Self.bajas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="bajas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__composicion__00000000000002E8">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="composicion" Type="Self.composicion" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="composicion">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__descripcion_basica__00000000000002CB">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="descripcion_basica" Type="Self.descripcion_basica" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="descripcion_basica">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__imagenes__0000000000000340">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="imagenes" Type="Self.imagenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="imagenes">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medidas__0000000000000245">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="medidas" Type="Self.medidas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="medidas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__modificaciones__0000000000000387">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="modificaciones" Type="Self.modificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="modificaciones">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__movimiento_pieza__000000000000030A">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="movimiento_pieza" Type="Self.movimiento_pieza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="movimiento_pieza">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permitir_modificar__00000000000001A6">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="permitir_modificar" Type="Self.permitir_modificar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="permitir_modificar">
+        <PropertyRef Name="Id_persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permitir_modificar__00000000000001AA">
+    <End Role="museos" Type="Self.museos" Multiplicity="1" />
+    <End Role="permitir_modificar" Type="Self.permitir_modificar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="museos">
+        <PropertyRef Name="Clave_de_museo" />
+      </Principal>
+      <Dependent Role="permitir_modificar">
+        <PropertyRef Name="Clave_de_museo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__piezas__000000000000020D">
+    <End Role="museos" Type="Self.museos" Multiplicity="1" />
+    <End Role="piezas" Type="Self.piezas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="museos">
+        <PropertyRef Name="Clave_de_museo" />
+      </Principal>
+      <Dependent Role="piezas">
+        <PropertyRef Name="Clave_de_museo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__piezas_verificaciones__000000000000032A">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="piezas_verificaciones" Type="Self.piezas_verificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="piezas_verificaciones">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ubicaciones__0000000000000365">
+    <End Role="piezas" Type="Self.piezas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ubicaciones" Type="Self.ubicaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="ubicaciones">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__verificaciones__00000000000001BE">
+    <End Role="museos" Type="Self.museos" Multiplicity="1" />
+    <End Role="verificaciones" Type="Self.verificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="museos">
+        <PropertyRef Name="Clave_de_museo" />
+      </Principal>
+      <Dependent Role="verificaciones">
+        <PropertyRef Name="Clave_de_museo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="museos_entidades_2">
+    <End Role="entidades" Type="Self.entidades" Multiplicity="0..1" />
+    <End Role="museos" Type="Self.museos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entidades">
+        <PropertyRef Name="Id_entidad" />
+      </Principal>
+      <Dependent Role="museos">
+        <PropertyRef Name="Id_entidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="INAHModelStoreContainer">
+    <EntitySet Name="adquisiciones" EntityType="Self.adquisiciones" store:Type="Tables" />
+    <EntitySet Name="bajas" EntityType="Self.bajas" store:Type="Tables" />
+    <EntitySet Name="composicion" EntityType="Self.composicion" store:Type="Tables" />
+    <EntitySet Name="credentials" EntityType="Self.credentials" store:Type="Tables" />
+    <EntitySet Name="descripcion_basica" EntityType="Self.descripcion_basica" store:Type="Tables" />
+    <EntitySet Name="entidades" EntityType="Self.entidades" store:Type="Tables" />
+    <EntitySet Name="imagenes" EntityType="Self.imagenes" store:Type="Tables" />
+    <EntitySet Name="medidas" EntityType="Self.medidas" store:Type="Tables" />
+    <EntitySet Name="modificaciones" EntityType="Self.modificaciones" store:Type="Tables" />
+    <EntitySet Name="movimiento_pieza" EntityType="Self.movimiento_pieza" store:Type="Tables" />
+    <EntitySet Name="museos" EntityType="Self.museos" store:Type="Tables" />
+    <EntitySet Name="permitir_modificar" EntityType="Self.permitir_modificar" store:Type="Tables" />
+    <EntitySet Name="piezas" EntityType="Self.piezas" store:Type="Tables" />
+    <EntitySet Name="piezas_verificaciones" EntityType="Self.piezas_verificaciones" store:Type="Tables" />
+    <EntitySet Name="ubicaciones" EntityType="Self.ubicaciones" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" store:Type="Tables" />
+    <EntitySet Name="verificaciones" EntityType="Self.verificaciones" store:Type="Tables" />
+    <AssociationSet Name="FK__adquisiciones__0000000000000267" Association="Self.FK__adquisiciones__0000000000000267">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="adquisiciones" EntitySet="adquisiciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__bajas__000000000000021E" Association="Self.FK__bajas__000000000000021E">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="bajas" EntitySet="bajas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__composicion__00000000000002E8" Association="Self.FK__composicion__00000000000002E8">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="composicion" EntitySet="composicion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__descripcion_basica__00000000000002CB" Association="Self.FK__descripcion_basica__00000000000002CB">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="descripcion_basica" EntitySet="descripcion_basica" />
+    </AssociationSet>
+    <AssociationSet Name="FK__imagenes__0000000000000340" Association="Self.FK__imagenes__0000000000000340">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="imagenes" EntitySet="imagenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medidas__0000000000000245" Association="Self.FK__medidas__0000000000000245">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="medidas" EntitySet="medidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__modificaciones__0000000000000387" Association="Self.FK__modificaciones__0000000000000387">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="modificaciones" EntitySet="modificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__movimiento_pieza__000000000000030A" Association="Self.FK__movimiento_pieza__000000000000030A">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="movimiento_pieza" EntitySet="movimiento_pieza" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permitir_modificar__00000000000001A6" Association="Self.FK__permitir_modificar__00000000000001A6">
+      <End Role="users" EntitySet="users" />
+      <End Role="permitir_modificar" EntitySet="permitir_modificar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permitir_modificar__00000000000001AA" Association="Self.FK__permitir_modificar__00000000000001AA">
+      <End Role="museos" EntitySet="museos" />
+      <End Role="permitir_modificar" EntitySet="permitir_modificar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__piezas__000000000000020D" Association="Self.FK__piezas__000000000000020D">
+      <End Role="museos" EntitySet="museos" />
+      <End Role="piezas" EntitySet="piezas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__piezas_verificaciones__000000000000032A" Association="Self.FK__piezas_verificaciones__000000000000032A">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="piezas_verificaciones" EntitySet="piezas_verificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ubicaciones__0000000000000365" Association="Self.FK__ubicaciones__0000000000000365">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="ubicaciones" EntitySet="ubicaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__verificaciones__00000000000001BE" Association="Self.FK__verificaciones__00000000000001BE">
+      <End Role="museos" EntitySet="museos" />
+      <End Role="verificaciones" EntitySet="verificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="museos_entidades_2" Association="Self.museos_entidades_2">
+      <End Role="entidades" EntitySet="entidades" />
+      <End Role="museos" EntitySet="museos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

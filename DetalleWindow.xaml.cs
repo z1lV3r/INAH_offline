@@ -19,13 +19,26 @@ namespace INAH
     /// </summary>
     public partial class DetalleWindow : Window
     {
-        public DetalleWindow()
+        public DetalleWindow(int itemId)
         {
             InitializeComponent();
             this.Width = SystemParameters.PrimaryScreenWidth;
             this.Height = SystemParameters.PrimaryScreenHeight;
             this.MinWidth = SystemParameters.PrimaryScreenWidth;
             this.MinHeight = SystemParameters.PrimaryScreenHeight;
+            //Cargar datos desde base
+            lblNoId.Content = itemId.ToString();
+        }
+
+        private void btnUpper_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox tbToUpper = ((TextBox)((DockPanel)((StackPanel)((Button)sender).Parent).Parent).Children[1]);
+            tbToUpper.Text = tbToUpper.Text.ToUpper();
+        }
+
+        private void btnGuardarDetalle_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

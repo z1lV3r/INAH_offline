@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="INAHModelStoreContainer" CdmEntityContainer="INAHConfig">
+    <EntitySetMapping Name="adquisiciones">
+      <EntityTypeMapping TypeName="INAHModel.adquisiciones">
+        <MappingFragment StoreEntitySet="adquisiciones">
+          <ScalarProperty Name="Metodo_de_adquisicion" ColumnName="Metodo_de_adquisicion" />
+          <ScalarProperty Name="Fecha_de_adquisicion" ColumnName="Fecha_de_adquisicion" />
+          <ScalarProperty Name="Fuente_de_adquisicion" ColumnName="Fuente_de_adquisicion" />
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="Procedencia" ColumnName="Procedencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bajas">
+      <EntityTypeMapping TypeName="INAHModel.bajas">
+        <MappingFragment StoreEntitySet="bajas">
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="Documentacion" ColumnName="Documentacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="composicion">
+      <EntityTypeMapping TypeName="INAHModel.composicion">
+        <MappingFragment StoreEntitySet="composicion">
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="Materia_prima" ColumnName="Materia_prima" />
+          <ScalarProperty Name="Tecnica_de_manufactura" ColumnName="Tecnica_de_manufactura" />
+          <ScalarProperty Name="Tecnica_decorativa" ColumnName="Tecnica_decorativa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="credentials">
+      <EntityTypeMapping TypeName="INAHModel.credentials">
+        <MappingFragment StoreEntitySet="credentials">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="descripcion_basica">
+      <EntityTypeMapping TypeName="INAHModel.descripcion_basica">
+        <MappingFragment StoreEntitySet="descripcion_basica">
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="Tipo_de_objeto" ColumnName="Tipo_de_objeto" />
+          <ScalarProperty Name="Nombre_o_tema" ColumnName="Nombre_o_tema" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Editor" ColumnName="Editor" />
+          <ScalarProperty Name="Taller_imprenta" ColumnName="Taller_imprenta" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+          <ScalarProperty Name="Epoca" ColumnName="Epoca" />
+          <ScalarProperty Name="Cultura" ColumnName="Cultura" />
+          <ScalarProperty Name="Fecha_pieza" ColumnName="Fecha_pieza" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Tema" ColumnName="Tema" />
+          <ScalarProperty Name="Forma" ColumnName="Forma" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Conservacion" ColumnName="Conservacion" />
+          <ScalarProperty Name="Inscripciones" ColumnName="Inscripciones" />
+          <ScalarProperty Name="Acervo" ColumnName="Acervo" />
+          <ScalarProperty Name="Avaluo" ColumnName="Avaluo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="entidades">
+      <EntityTypeMapping TypeName="INAHModel.entidades">
+        <MappingFragment StoreEntitySet="entidades">
+          <ScalarProperty Name="Id_entidad" ColumnName="Id_entidad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="imagenes">
+      <EntityTypeMapping TypeName="INAHModel.imagenes">
+        <MappingFragment StoreEntitySet="imagenes">
+          <ScalarProperty Name="idimagenes" ColumnName="idimagenes" />
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medidas">
+      <EntityTypeMapping TypeName="INAHModel.medidas">
+        <MappingFragment StoreEntitySet="medidas">
+          <ScalarProperty Name="Alto" ColumnName="Alto" />
+          <ScalarProperty Name="Largo" ColumnName="Largo" />
+          <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+          <ScalarProperty Name="Diametro" ColumnName="Diametro" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modificaciones">
+      <EntityTypeMapping TypeName="INAHModel.modificaciones">
+        <MappingFragment StoreEntitySet="modificaciones">
+          <ScalarProperty Name="Id_cambio" ColumnName="Id_cambio" />
+          <ScalarProperty Name="Fecha_de_cambio" ColumnName="Fecha_de_cambio" />
+          <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="Campo" ColumnName="Campo" />
+          <ScalarProperty Name="Valor_anterior" ColumnName="Valor_anterior" />
+          <ScalarProperty Name="Valor_actual" ColumnName="Valor_actual" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movimiento_pieza">
+      <EntityTypeMapping TypeName="INAHModel.movimiento_pieza">
+        <MappingFragment StoreEntitySet="movimiento_pieza">
+          <ScalarProperty Name="NI" ColumnName="NI" />
+          <ScalarProperty Name="NA" ColumnName="NA" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="Numero_de_autorizacion" ColumnName="Numero_de_autorizacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="museos">
+      <EntityTypeMapping TypeName="INAHModel.museos">
+        <MappingFragment StoreEntitySet="museos">
+          <ScalarProperty Name="Clave_de_museo" ColumnName="Clave_de_museo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Id_entidad" ColumnName="Id_entidad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permitir_modificar">
+      <EntityTypeMapping TypeName="INAHModel.permitir_modificar">
+        <MappingFragment StoreEntitySet="permitir_modificar">
+          <ScalarProperty Name="Clave_de_museo" ColumnName="Clave_de_museo" />
+          <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+          <ScalarProperty Name="Modificar" ColumnName="Modificar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="piezas">
+      <EntityTypeMapping TypeName="INAHModel.piezas">
+        <MappingFragment StoreEntitySet="piezas">
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="Clave_de_museo" ColumnName="Clave_de_museo" />
+          <ScalarProperty Name="Folio_real" ColumnName="Folio_real" />
+          <ScalarProperty Name="Numero_de_registro" ColumnName="Numero_de_registro" />
+          <ScalarProperty Name="Numero_de_catalogo" ColumnName="Numero_de_catalogo" />
+          <ScalarProperty Name="Otro_numero" ColumnName="Otro_numero" />
+          <ScalarProperty Name="Control_interno" ColumnName="Control_interno" />
+          <ScalarProperty Name="Cantidad_ampara" ColumnName="Cantidad_ampara" />
+          <ScalarProperty Name="NI" ColumnName="NI" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
+          <ScalarProperty Name="Verificacion_por_centro_de_trabajo" ColumnName="Verificacion_por_centro_de_trabajo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="piezas_verificaciones">
+      <EntityTypeMapping TypeName="INAHModel.piezas_verificaciones">
+        <MappingFragment StoreEntitySet="piezas_verificaciones">
+          <ScalarProperty Name="idpiezas_verificaciones" ColumnName="idpiezas_verificaciones" />
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+          <ScalarProperty Name="Id_verificacion" ColumnName="Id_verificacion" />
+          <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+          <ScalarProperty Name="Fecha_verificacion" ColumnName="Fecha_verificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ubicaciones">
+      <EntityTypeMapping TypeName="INAHModel.ubicaciones">
+        <MappingFragment StoreEntitySet="ubicaciones">
+          <ScalarProperty Name="Id_ubicacion" ColumnName="Id_ubicacion" />
+          <ScalarProperty Name="Ubicacion_Actual" ColumnName="Ubicacion_Actual" />
+          <ScalarProperty Name="Fecha_de_ubicacion" ColumnName="Fecha_de_ubicacion" />
+          <ScalarProperty Name="Tipo_de_ubicacion" ColumnName="Tipo_de_ubicacion" />
+          <ScalarProperty Name="Ubicacion_normal" ColumnName="Ubicacion_normal" />
+          <ScalarProperty Name="Numero_de_inventario" ColumnName="Numero_de_inventario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="INAHModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="remember_token" ColumnName="remember_token" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="clave_de_museo" ColumnName="clave_de_museo" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="Id_verificacion" ColumnName="Id_verificacion" />
+          <ScalarProperty Name="Id_entidad" ColumnName="Id_entidad" />
+          <ScalarProperty Name="acreditado_editar" ColumnName="acreditado_editar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="verificaciones">
+      <EntityTypeMapping TypeName="INAHModel.verificaciones">
+        <MappingFragment StoreEntitySet="verificaciones">
+          <ScalarProperty Name="Id_verificacion" ColumnName="Id_verificacion" />
+          <ScalarProperty Name="Clave_de_museo" ColumnName="Clave_de_museo" />
+          <ScalarProperty Name="Fecha_de_inicio" ColumnName="Fecha_de_inicio" />
+          <ScalarProperty Name="Fecha_de_termino" ColumnName="Fecha_de_termino" />
+          <ScalarProperty Name="Ruta_acta" ColumnName="Ruta_acta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

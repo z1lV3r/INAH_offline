@@ -19,9 +19,6 @@ using System.Windows.Shapes;
 
 namespace INAH
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -32,14 +29,14 @@ namespace INAH
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            if (MatchPassword(TbUsuario.Text, TbPassword.Password))
+            if (MatchPassword(TbEmail.Text, TbPassword.Password))
             {
-                var detalleWindow = new DetalleWindow
+                var coleccionesWindow = new ColeccionesWindow
                 {
                     WindowState = WindowState.Maximized
                 };
                 this.Close();
-                detalleWindow.Show();
+                coleccionesWindow.Show();
             }
             else
             {
@@ -62,7 +59,7 @@ namespace INAH
             }
         }
 
-        private bool MatchPassword(string user, string password)
+        private bool MatchPassword(string email, string password)
         {
             //TODO: check external information
             //using (var entities = new DataEntities())
@@ -79,7 +76,7 @@ namespace INAH
             using (var entities = new DataEntities())
             {
                 var cypherPass = Utils.getHashSha256(password);
-                var result = entities.credentials.Where(c => c.User == user && c.Key == cypherPass).ToList();
+                var result = entities.users.Where(c => c.email == email && c.password == cypherPass).ToList();
 
                 if (result.Count == 1)
                 {
@@ -87,6 +84,7 @@ namespace INAH
                 }
             }
             return false;
+            //return true;
         }
     }
 }

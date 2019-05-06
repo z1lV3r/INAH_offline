@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="credentials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Key" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="credentials" EntityType="Self.credentials" />
+    <EntitySet Name="adquisiciones" EntityType="DataModel.adquisiciones" />
+    <EntitySet Name="bajas" EntityType="DataModel.bajas" />
+    <EntitySet Name="composicion" EntityType="DataModel.composicion" />
+    <EntitySet Name="descripcion_basica" EntityType="DataModel.descripcion_basica" />
+    <EntitySet Name="entidades" EntityType="DataModel.entidades" />
+    <EntitySet Name="imagenes" EntityType="DataModel.imagenes" />
+    <EntitySet Name="medidas" EntityType="DataModel.medidas" />
+    <EntitySet Name="modificaciones" EntityType="DataModel.modificaciones" />
+    <EntitySet Name="movimiento_pieza" EntityType="DataModel.movimiento_pieza" />
+    <EntitySet Name="museos" EntityType="DataModel.museos" />
+    <EntitySet Name="permitir_modificar" EntityType="DataModel.permitir_modificar" />
+    <EntitySet Name="piezas" EntityType="DataModel.piezas" />
+    <EntitySet Name="piezas_verificaciones" EntityType="DataModel.piezas_verificaciones" />
+    <EntitySet Name="ubicaciones" EntityType="DataModel.ubicaciones" />
+    <EntitySet Name="users" EntityType="DataModel.users" />
+    <EntitySet Name="verificaciones" EntityType="DataModel.verificaciones" />
+    <AssociationSet Name="FK__adquisiciones__0000000000000267" Association="DataModel.FK__adquisiciones__0000000000000267">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="adquisiciones" EntitySet="adquisiciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__bajas__000000000000021E" Association="DataModel.FK__bajas__000000000000021E">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="bajas" EntitySet="bajas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__composicion__00000000000002E8" Association="DataModel.FK__composicion__00000000000002E8">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="composicion" EntitySet="composicion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__descripcion_basica__00000000000002CB" Association="DataModel.FK__descripcion_basica__00000000000002CB">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="descripcion_basica" EntitySet="descripcion_basica" />
+    </AssociationSet>
+    <AssociationSet Name="museos_entidades_2" Association="DataModel.museos_entidades_2">
+      <End Role="entidades" EntitySet="entidades" />
+      <End Role="museos" EntitySet="museos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__imagenes__0000000000000340" Association="DataModel.FK__imagenes__0000000000000340">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="imagenes" EntitySet="imagenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medidas__0000000000000245" Association="DataModel.FK__medidas__0000000000000245">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="medidas" EntitySet="medidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__modificaciones__0000000000000387" Association="DataModel.FK__modificaciones__0000000000000387">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="modificaciones" EntitySet="modificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__movimiento_pieza__000000000000030A" Association="DataModel.FK__movimiento_pieza__000000000000030A">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="movimiento_pieza" EntitySet="movimiento_pieza" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permitir_modificar__00000000000001AA" Association="DataModel.FK__permitir_modificar__00000000000001AA">
+      <End Role="museos" EntitySet="museos" />
+      <End Role="permitir_modificar" EntitySet="permitir_modificar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__piezas__000000000000020D" Association="DataModel.FK__piezas__000000000000020D">
+      <End Role="museos" EntitySet="museos" />
+      <End Role="piezas" EntitySet="piezas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__verificaciones__00000000000001BE" Association="DataModel.FK__verificaciones__00000000000001BE">
+      <End Role="museos" EntitySet="museos" />
+      <End Role="verificaciones" EntitySet="verificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permitir_modificar__00000000000001A6" Association="DataModel.FK__permitir_modificar__00000000000001A6">
+      <End Role="users" EntitySet="users" />
+      <End Role="permitir_modificar" EntitySet="permitir_modificar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__piezas_verificaciones__000000000000032A" Association="DataModel.FK__piezas_verificaciones__000000000000032A">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="piezas_verificaciones" EntitySet="piezas_verificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ubicaciones__0000000000000365" Association="DataModel.FK__ubicaciones__0000000000000365">
+      <End Role="piezas" EntitySet="piezas" />
+      <End Role="ubicaciones" EntitySet="ubicaciones" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="adquisiciones">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Metodo_de_adquisicion" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_de_adquisicion" Type="DateTime" Precision="3" />
+    <Property Name="Fuente_de_adquisicion" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="Numero_de_inventario" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Procedencia" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__adquisiciones__0000000000000267" FromRole="adquisiciones" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="bajas">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Numero_de_inventario" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Documentacion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__bajas__000000000000021E" FromRole="bajas" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="composicion">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Numero_de_inventario" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Materia_prima" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Tecnica_de_manufactura" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Tecnica_decorativa" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__composicion__00000000000002E8" FromRole="composicion" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="descripcion_basica">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Numero_de_inventario" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo_de_objeto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre_o_tema" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Autor" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Editor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Taller_imprenta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Marca" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Denominacion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Epoca" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Cultura" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_pieza" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Origen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Tema" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Forma" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Conservacion" Type="Int32" />
+    <Property Name="Inscripciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Acervo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Avaluo" Type="Int32" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__descripcion_basica__00000000000002CB" FromRole="descripcion_basica" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="entidades">
+    <Key>
+      <PropertyRef Name="Id_entidad" />
+    </Key>
+    <Property Name="Id_entidad" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Slug" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="museos" Relationship="DataModel.museos_entidades_2" FromRole="entidades" ToRole="museos" />
+  </EntityType>
+  <EntityType Name="imagenes">
+    <Key>
+      <PropertyRef Name="idimagenes" />
+    </Key>
+    <Property Name="idimagenes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Numero_de_inventario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__imagenes__0000000000000340" FromRole="imagenes" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="medidas">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Alto" Type="Single" />
+    <Property Name="Largo" Type="Single" />
+    <Property Name="Ancho" Type="Single" />
+    <Property Name="Diametro" Type="Single" />
+    <Property Name="Peso" Type="Single" />
+    <Property Name="Numero_de_inventario" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__medidas__0000000000000245" FromRole="medidas" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="modificaciones">
+    <Key>
+      <PropertyRef Name="Id_cambio" />
+    </Key>
+    <Property Name="Id_cambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_de_cambio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id_persona" Type="Int32" Nullable="false" />
+    <Property Name="Numero_de_inventario" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Campo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Valor_anterior" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Valor_actual" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__modificaciones__0000000000000387" FromRole="modificaciones" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="movimiento_pieza">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="NI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Numero_de_inventario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Numero_de_autorizacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__movimiento_pieza__000000000000030A" FromRole="movimiento_pieza" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="museos">
+    <Key>
+      <PropertyRef Name="Clave_de_museo" />
+    </Key>
+    <Property Name="Clave_de_museo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Id_entidad" Type="Int32" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Slug" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="entidades" Relationship="DataModel.museos_entidades_2" FromRole="museos" ToRole="entidades" />
+    <NavigationProperty Name="permitir_modificar" Relationship="DataModel.FK__permitir_modificar__00000000000001AA" FromRole="museos" ToRole="permitir_modificar" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__piezas__000000000000020D" FromRole="museos" ToRole="piezas" />
+    <NavigationProperty Name="verificaciones" Relationship="DataModel.FK__verificaciones__00000000000001BE" FromRole="museos" ToRole="verificaciones" />
+  </EntityType>
+  <EntityType Name="permitir_modificar">
+    <Key>
+      <PropertyRef Name="Clave_de_museo" />
+      <PropertyRef Name="Id_persona" />
+    </Key>
+    <Property Name="Clave_de_museo" Type="Int32" Nullable="false" />
+    <Property Name="Id_persona" Type="Int32" Nullable="false" />
+    <Property Name="Modificar" Type="Byte" />
+    <NavigationProperty Name="museos" Relationship="DataModel.FK__permitir_modificar__00000000000001AA" FromRole="permitir_modificar" ToRole="museos" />
+    <NavigationProperty Name="users" Relationship="DataModel.FK__permitir_modificar__00000000000001A6" FromRole="permitir_modificar" ToRole="users" />
+  </EntityType>
+  <EntityType Name="piezas">
+    <Key>
+      <PropertyRef Name="Numero_de_inventario" />
+    </Key>
+    <Property Name="Numero_de_inventario" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Clave_de_museo" Type="Int32" Nullable="false" />
+    <Property Name="Folio_real" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Numero_de_registro" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Numero_de_catalogo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Otro_numero" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Control_interno" Type="Byte" />
+    <Property Name="Cantidad_ampara" Type="Int32" />
+    <Property Name="NI" Type="Int32" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="flag" Type="Byte" />
+    <Property Name="deleted_at" Type="DateTime" Precision="3" />
+    <Property Name="id_ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Verificacion_por_centro_de_trabajo" Type="Byte" />
+    <NavigationProperty Name="adquisiciones" Relationship="DataModel.FK__adquisiciones__0000000000000267" FromRole="piezas" ToRole="adquisiciones" />
+    <NavigationProperty Name="bajas" Relationship="DataModel.FK__bajas__000000000000021E" FromRole="piezas" ToRole="bajas" />
+    <NavigationProperty Name="composicion" Relationship="DataModel.FK__composicion__00000000000002E8" FromRole="piezas" ToRole="composicion" />
+    <NavigationProperty Name="descripcion_basica" Relationship="DataModel.FK__descripcion_basica__00000000000002CB" FromRole="piezas" ToRole="descripcion_basica" />
+    <NavigationProperty Name="imagenes" Relationship="DataModel.FK__imagenes__0000000000000340" FromRole="piezas" ToRole="imagenes" />
+    <NavigationProperty Name="medidas" Relationship="DataModel.FK__medidas__0000000000000245" FromRole="piezas" ToRole="medidas" />
+    <NavigationProperty Name="modificaciones" Relationship="DataModel.FK__modificaciones__0000000000000387" FromRole="piezas" ToRole="modificaciones" />
+    <NavigationProperty Name="movimiento_pieza" Relationship="DataModel.FK__movimiento_pieza__000000000000030A" FromRole="piezas" ToRole="movimiento_pieza" />
+    <NavigationProperty Name="museos" Relationship="DataModel.FK__piezas__000000000000020D" FromRole="piezas" ToRole="museos" />
+    <NavigationProperty Name="piezas_verificaciones" Relationship="DataModel.FK__piezas_verificaciones__000000000000032A" FromRole="piezas" ToRole="piezas_verificaciones" />
+    <NavigationProperty Name="ubicaciones" Relationship="DataModel.FK__ubicaciones__0000000000000365" FromRole="piezas" ToRole="ubicaciones" />
+  </EntityType>
+  <EntityType Name="piezas_verificaciones">
+    <Key>
+      <PropertyRef Name="idpiezas_verificaciones" />
+    </Key>
+    <Property Name="idpiezas_verificaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Numero_de_inventario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Id_verificacion" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Id_persona" Type="Int32" />
+    <Property Name="Fecha_verificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__piezas_verificaciones__000000000000032A" FromRole="piezas_verificaciones" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="ubicaciones">
+    <Key>
+      <PropertyRef Name="Id_ubicacion" />
+    </Key>
+    <Property Name="Id_ubicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ubicacion_Actual" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_de_ubicacion" Type="DateTime" Precision="3" />
+    <Property Name="Tipo_de_ubicacion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Ubicacion_normal" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Numero_de_inventario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="piezas" Relationship="DataModel.FK__ubicaciones__0000000000000365" FromRole="ubicaciones" ToRole="piezas" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="remember_token" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <Property Name="clave_de_museo" Type="Int32" />
+    <Property Name="role" Type="Int32" />
+    <Property Name="area" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="apellidos" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Id_verificacion" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Id_entidad" Type="Int32" />
+    <Property Name="acreditado_editar" Type="Byte" />
+    <NavigationProperty Name="permitir_modificar" Relationship="DataModel.FK__permitir_modificar__00000000000001A6" FromRole="users" ToRole="permitir_modificar" />
+  </EntityType>
+  <EntityType Name="verificaciones">
+    <Key>
+      <PropertyRef Name="Id_verificacion" />
+    </Key>
+    <Property Name="Id_verificacion" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Clave_de_museo" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_de_inicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_de_termino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ruta_acta" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="museos" Relationship="DataModel.FK__verificaciones__00000000000001BE" FromRole="verificaciones" ToRole="museos" />
+  </EntityType>
+  <Association Name="FK__adquisiciones__0000000000000267">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.adquisiciones" Role="adquisiciones" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="adquisiciones">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__bajas__000000000000021E">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.bajas" Role="bajas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="bajas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__composicion__00000000000002E8">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.composicion" Role="composicion" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="composicion">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__descripcion_basica__00000000000002CB">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.descripcion_basica" Role="descripcion_basica" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="descripcion_basica">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="museos_entidades_2">
+    <End Type="DataModel.entidades" Role="entidades" Multiplicity="0..1" />
+    <End Type="DataModel.museos" Role="museos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entidades">
+        <PropertyRef Name="Id_entidad" />
+      </Principal>
+      <Dependent Role="museos">
+        <PropertyRef Name="Id_entidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__imagenes__0000000000000340">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.imagenes" Role="imagenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="imagenes">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medidas__0000000000000245">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.medidas" Role="medidas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="medidas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__modificaciones__0000000000000387">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.modificaciones" Role="modificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="modificaciones">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__movimiento_pieza__000000000000030A">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.movimiento_pieza" Role="movimiento_pieza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="movimiento_pieza">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permitir_modificar__00000000000001AA">
+    <End Type="DataModel.museos" Role="museos" Multiplicity="1" />
+    <End Type="DataModel.permitir_modificar" Role="permitir_modificar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="museos">
+        <PropertyRef Name="Clave_de_museo" />
+      </Principal>
+      <Dependent Role="permitir_modificar">
+        <PropertyRef Name="Clave_de_museo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__piezas__000000000000020D">
+    <End Type="DataModel.museos" Role="museos" Multiplicity="1" />
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="museos">
+        <PropertyRef Name="Clave_de_museo" />
+      </Principal>
+      <Dependent Role="piezas">
+        <PropertyRef Name="Clave_de_museo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__verificaciones__00000000000001BE">
+    <End Type="DataModel.museos" Role="museos" Multiplicity="1" />
+    <End Type="DataModel.verificaciones" Role="verificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="museos">
+        <PropertyRef Name="Clave_de_museo" />
+      </Principal>
+      <Dependent Role="verificaciones">
+        <PropertyRef Name="Clave_de_museo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permitir_modificar__00000000000001A6">
+    <End Type="DataModel.users" Role="users" Multiplicity="1" />
+    <End Type="DataModel.permitir_modificar" Role="permitir_modificar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="permitir_modificar">
+        <PropertyRef Name="Id_persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__piezas_verificaciones__000000000000032A">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.piezas_verificaciones" Role="piezas_verificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="piezas_verificaciones">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ubicaciones__0000000000000365">
+    <End Type="DataModel.piezas" Role="piezas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.ubicaciones" Role="ubicaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="piezas">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Principal>
+      <Dependent Role="ubicaciones">
+        <PropertyRef Name="Numero_de_inventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

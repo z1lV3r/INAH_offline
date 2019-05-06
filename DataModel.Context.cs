@@ -26,5 +26,21 @@ namespace INAH
         }
     
         public virtual DbSet<credentials> credentials { get; set; }
+        public virtual DbSet<adquisiciones> adquisiciones { get; set; }
+        public virtual DbSet<bajas> bajas { get; set; }
+        public virtual DbSet<composicion> composicion { get; set; }
+        public virtual DbSet<descripcion_basica> descripcion_basica { get; set; }
+        public virtual DbSet<entidades> entidades { get; set; }
+        public virtual DbSet<imagenes> imagenes { get; set; }
+        public virtual DbSet<medidas> medidas { get; set; }
+        public virtual DbSet<modificaciones> modificaciones { get; set; }
+        public virtual DbSet<movimiento_pieza> movimiento_pieza { get; set; }
+        public virtual DbSet<museos> museos { get; set; }
+        public virtual DbSet<permitir_modificar> permitir_modificar { get; set; }
+        public virtual DbSet<piezas> piezas { get; set; }
+        public virtual DbSet<piezas_verificaciones> piezas_verificaciones { get; set; }
+        public virtual DbSet<ubicaciones> ubicaciones { get; set; }
+        public virtual DbSet<users> users { get; set; }
+        public virtual DbSet<verificaciones> verificaciones { get; set; }
     }
 }

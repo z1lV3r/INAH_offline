@@ -22,14 +22,23 @@
                 <Image Height="350" Width="Auto"/>
                 <!-- Acervo -->
                 <Label Content="Acervo" Style="{StaticResource TitleCategoriaStyle}" />
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Tipo: " Style="{StaticResource TitleStyle}"/>
-                    <ListBox></ListBox>
-                </StackPanel>
+                <Label Content="Tipo: " Style="{StaticResource TitleStyle}"/>
+                <ComboBox>
+                    <ComboBoxItem>Arqueológico</ComboBoxItem>
+                    <ComboBoxItem>Histórico</ComboBoxItem>
+                    <ComboBoxItem>Paleontológico</ComboBoxItem>
+                    <ComboBoxItem>Etnográfico</ComboBoxItem>
+                    <ComboBoxItem>Contemporáneo</ComboBoxItem>
+                </ComboBox>
                 <!-- Conservación -->
                 <Label Content="Conservación" Style="{StaticResource TitleCategoriaStyle}"/>
                 <Label Content="Estado de la conservación:" Style="{StaticResource TitleStyle}"/>
-                <ListBox></ListBox>
+                <ComboBox>
+                    <ComboBoxItem>No requiere intervencion</ComboBoxItem>
+                    <ComboBoxItem>Requiere intervencion</ComboBoxItem>
+                    <ComboBoxItem>Requiere intervencion urgente</ComboBoxItem>
+                    <ComboBoxItem>En riesgo</ComboBoxItem>
+                </ComboBox>
                 <!-- Avalúo -->
                 <Label Content="Avalúo" Style="{StaticResource TitleCategoriaStyle}"/>
 
@@ -49,6 +58,13 @@
                         <Label Content="MXN" Grid.Column="2" Style="{StaticResource PostSymbolStyle}"/>
                     </Grid>
                 </DockPanel>
+                <!-- Guardar -->
+                <Grid Margin="0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="btnGuardarDetalle" Height="25" Grid.Row="0" Click="btnGuardarDetalle_Click">Guardar</Button>
+                </Grid>
             </StackPanel>
 
             <!-- Detalle de la pieza en panel derecho -->
@@ -69,7 +85,7 @@
                     <!-- Número de inventario -->
                     <StackPanel Grid.Row="0" Orientation="Horizontal">
                         <Label Content="Número de inventario:" FontSize="16" FontWeight="Bold" />
-                        <Label Content="12345678" FontSize="16" />
+                        <Label x:Name="lblNoId" Content="12345678" FontSize="16" />
                     </StackPanel>
 
                     <!-- Numeros -->
@@ -90,7 +106,7 @@
                                 <Label Content="Número de catálogo:" Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="1">
@@ -98,7 +114,7 @@
                                 <Label Content="Número de registro: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="2" Grid.Row="1">
@@ -106,7 +122,7 @@
                                 <Label Content="Otros números: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
                     </Grid>
 
@@ -128,54 +144,66 @@
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Tipo de objeto:* " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperTipoObjeto" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox x:Name="tbTipoObjeto" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="1">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Nombre o tema:* " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperNombreTema" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox x:Name="tbNombreTema" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="2" Grid.Row="1">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Autor: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperAutor" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox x:Name="tbAutor" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="0" Grid.Row="2">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Epoca: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperEpoca" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}"/>
+                            <TextBox x:Name="tbEpoca" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287"/>
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="2">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Cultura: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperCultura" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}"/>
+                            <TextBox x:Name="tbCultura" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287"/>
                         </DockPanel>
 
                         <DockPanel Grid.Column="2" Grid.Row="2">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Lugar de origen: " Style="{StaticResource TitleStyle}" />
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperLugarOrigen" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}"/>
+                            <TextBox x:Name="tbLugarOrigen" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287"/>
                         </DockPanel>
                     </Grid>
 
@@ -196,27 +224,33 @@
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Material constitutivo:* " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperMaterial" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxComposicionStyle}" />
+                            <TextBox x:Name="tbMaterial" Style="{StaticResource TextBoxComposicionStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="1">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Técnica de maufactura: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperTecnicaManufactura" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxComposicionStyle}" />
+                            <TextBox x:Name="tbTecnicaManufactura" Style="{StaticResource TextBoxComposicionStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="2" Grid.Row="1">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Técnica decorativa: " Style="{StaticResource TitleStyle}" />
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperTecnicaDecorativa" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxComposicionStyle}" />
+                            <TextBox x:Name="tbTecnicaDecorativa" Style="{StaticResource TextBoxComposicionStyle}" MaxWidth="287" />
                         </DockPanel>
                     </Grid>
 
@@ -236,18 +270,22 @@
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Procedencia: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperProcedencia" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox x:Name="tbProcedencia" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="440" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="1">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Método de adquisición: " Style="{StaticResource TitleStyle}" />
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperMetodoAdquisicion" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox x:Name="tbMetodoAdquisicion" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="440" />
                         </DockPanel>
                     </Grid>
 
@@ -266,9 +304,11 @@
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Ubicación: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperUbicacion" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox x:Name="tbUbicacion" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="900" />
                         </DockPanel>
                     </Grid>
 
@@ -289,7 +329,7 @@
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Piezas que ampara este registro: " Style="{StaticResource TitleStyle}"/>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" />
+                            <TextBox Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="1">
@@ -325,7 +365,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}" Height="28" MaxWidth="134"/>
                                 <Label Content=" cm" Grid.Column="1" Style="{StaticResource PostSymbolStyle}" />
                             </Grid>
                         </DockPanel>
@@ -340,7 +380,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}" Height="28" MaxWidth="134"/>
                                 <Label Content=" cm" Grid.Column="1" Style="{StaticResource PostSymbolStyle}"/>
                             </Grid>
                         </DockPanel>
@@ -355,7 +395,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}" Height="28" MaxWidth="134"/>
                                 <Label Content=" cm" Grid.Column="1" Style="{StaticResource PostSymbolStyle}"/>
                             </Grid>
                         </DockPanel>
@@ -370,7 +410,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}" Height="28" MaxWidth="134"/>
                                 <Label Content=" cm" Grid.Column="1" Style="{StaticResource PostSymbolStyle}"/>
                             </Grid>
                         </DockPanel>
@@ -385,7 +425,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}"/>
+                                <TextBox Width="Auto" Grid.Column="0" Style="{StaticResource PostPrefixQuantityStyle}" Height="28" MaxWidth="134"/>
                                 <Label Content=" gr" Grid.Column="1" Style="{StaticResource PostSymbolStyle}"/>
                             </Grid>
                         </DockPanel>
@@ -408,36 +448,44 @@
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Forma: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperForma" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDescripcionVisualStyle}"/>
+                            <TextBox x:Name="tbForma" Style="{StaticResource TextBoxDescripcionVisualStyle}"/>
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="1">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Inscripciones: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperInscripciones" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDescripcionVisualStyle}" />
+                            <TextBox x:Name="tbInscripciones" Style="{StaticResource TextBoxDescripcionVisualStyle}" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="0" Grid.Row="2">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Descripción: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperDescripcion" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDescripcionVisualStyle}" />
+                            <TextBox x:Name="tbDescripcion" Style="{StaticResource TextBoxDescripcionVisualStyle}" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="2">
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                                 <Label Content="Observaciones: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
-                                <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                <Button x:Name="btnUpperObservaciones" Style="{StaticResource UpperCaseButton}" Click="btnUpper_Click" KeyboardNavigation.IsTabStop="False">
+                                    <Image Source="img/uppercase.png" Width="12" Height="12" />
+                                </Button>
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDescripcionVisualStyle}" />
+                            <TextBox x:Name="tbObservaciones" Style="{StaticResource TextBoxDescripcionVisualStyle}" />
                         </DockPanel>
                     </Grid>
                 </Grid>

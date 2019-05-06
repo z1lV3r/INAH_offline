@@ -4,8 +4,39 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3e9310612d9b47fc9a4dcf891b7da060" Name="Diagram1">
+      <Diagram DiagramId="3e9310612d9b47fc9a4dcf891b7da060" Name="Diagram1" ZoomLevel="133">
         <EntityTypeShape EntityType="DataModel.credentials" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.adquisiciones" Width="1.5" PointX="10.125" PointY="15.125" />
+        <EntityTypeShape EntityType="DataModel.bajas" Width="1.5" PointX="10.125" PointY="12.75" />
+        <EntityTypeShape EntityType="DataModel.composicion" Width="1.5" PointX="10.125" PointY="33.375" />
+        <EntityTypeShape EntityType="DataModel.descripcion_basica" Width="1.5" PointX="10.125" PointY="24.75" />
+        <EntityTypeShape EntityType="DataModel.entidades" Width="1.5" PointX="3.375" PointY="20.25" />
+        <EntityTypeShape EntityType="DataModel.imagenes" Width="1.5" PointX="10.125" PointY="7.125" />
+        <EntityTypeShape EntityType="DataModel.medidas" Width="1.5" PointX="10.125" PointY="4" />
+        <EntityTypeShape EntityType="DataModel.modificaciones" Width="1.5" PointX="10.125" PointY="18.125" />
+        <EntityTypeShape EntityType="DataModel.movimiento_pieza" Width="1.5" PointX="10.125" PointY="21.75" />
+        <EntityTypeShape EntityType="DataModel.museos" Width="1.5" PointX="5.625" PointY="19.625" />
+        <EntityTypeShape EntityType="DataModel.permitir_modificar" Width="1.5" PointX="7.875" PointY="24.25" />
+        <EntityTypeShape EntityType="DataModel.piezas" Width="1.5" PointX="7.875" PointY="16.75" />
+        <EntityTypeShape EntityType="DataModel.piezas_verificaciones" Width="1.5" PointX="10.125" PointY="30.5" />
+        <EntityTypeShape EntityType="DataModel.ubicaciones" Width="1.5" PointX="10.125" PointY="9.75" />
+        <EntityTypeShape EntityType="DataModel.users" Width="1.5" PointX="5.625" PointY="24.25" />
+        <EntityTypeShape EntityType="DataModel.verificaciones" Width="1.5" PointX="7.875" PointY="38.875" />
+        <AssociationConnector Association="DataModel.FK__adquisiciones__0000000000000267" />
+        <AssociationConnector Association="DataModel.FK__bajas__000000000000021E" />
+        <AssociationConnector Association="DataModel.FK__composicion__00000000000002E8" />
+        <AssociationConnector Association="DataModel.FK__descripcion_basica__00000000000002CB" />
+        <AssociationConnector Association="DataModel.museos_entidades_2" />
+        <AssociationConnector Association="DataModel.FK__imagenes__0000000000000340" />
+        <AssociationConnector Association="DataModel.FK__medidas__0000000000000245" />
+        <AssociationConnector Association="DataModel.FK__modificaciones__0000000000000387" />
+        <AssociationConnector Association="DataModel.FK__movimiento_pieza__000000000000030A" />
+        <AssociationConnector Association="DataModel.FK__permitir_modificar__00000000000001AA" />
+        <AssociationConnector Association="DataModel.FK__piezas__000000000000020D" />
+        <AssociationConnector Association="DataModel.FK__verificaciones__00000000000001BE" />
+        <AssociationConnector Association="DataModel.FK__permitir_modificar__00000000000001A6" />
+        <AssociationConnector Association="DataModel.FK__piezas_verificaciones__000000000000032A" />
+        <AssociationConnector Association="DataModel.FK__ubicaciones__0000000000000365" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

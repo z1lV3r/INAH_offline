@@ -70,4 +70,10 @@
     <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
     <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
   </Style>
+
+    <Style x:Key="UpperCaseButton" TargetType="Button">
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="{x:Null}" />
+    </Style>
 </ResourceDictionary>
