@@ -40,12 +40,12 @@ namespace INAH
             }
             else
             {
-                //TODO: show error message
+                MessageBox.Show("La contraseña y el correo proporcionado no coinciden en los registros.", "Error de autenticación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void InitializeDataStructure()
-        {   
+        {
             if (!File.Exists(DatabaseConstants.DATABASE_FILE))
             {
                 var sqEng = new SqlCeEngine(DatabaseConstants.DATABASE_STRING_CONNECTION);

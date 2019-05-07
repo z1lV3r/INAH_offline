@@ -1,0 +1,50 @@
+numeros
+numero de catalogo 
+numero de registro 
+otros numeros 
+
+verificacion
+piezas que ampara el registro -> piezas
+verificado -> piezas
+
+descripcion basica
+tipo de objeto -> descripcion basica
+nombre o tema -> descripcion basica tema
+autor -> descripcion basica
+epoca -> descripcion basica
+cultura -> descripcion basica
+lugar de origen -> descripcion basica
+
+composicion
+material constutivo -> composicion_materia prima
+tecnica de manufactura-> composicion_tecnica
+tecnica decorativa-> composicion_decorativa
+
+adquisicion
+procedencia -> adquisiciones
+metodo de adquisicion -> adquisiciones
+
+ubicacion
+ubicacion -> ubicaciones
+
+
+medidas
+alto -> medidas
+largo -> medidas
+espesor -> medidas
+diametro -> medidas
+peso -> medidas
+
+descripcion visual
+forma -> descripcion
+inscripciones -> descripcion
+descripcion -> descripcion
+observaciones -> descripcion
+
+acervo
+tipo -> descripcion
+
+conservacion
+estado -> descripcion
+
+avaluo -> descripcion
