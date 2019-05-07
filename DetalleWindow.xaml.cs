@@ -44,30 +44,34 @@ namespace INAH
                 if ("No asignado".Equals(lblNoId.Content.ToString()))
                 {
                     piezas pieza = new piezas();
+                    pieza.Numero_de_inventario = tbNumeroRegistro.Text;
+                    pieza.Numero_de_catalogo = tbNumeroCatalogo.Text;
                     pieza.Cantidad_ampara = int.Parse(tbPiezasAmparadas.Text);
+                    pieza.Clave_de_museo = 1;
                     entities.piezas.Add(pieza);
                     try
                     {
                         entities.SaveChanges();
                     }
-                catch (DbEntityValidationException ex)
-                {
-                    // Retrieve the error messages as a list of strings.
-                    var errorMessages = ex.EntityValidationErrors
-                            .SelectMany(x => x.ValidationErrors)
-                            .Select(x => x.ErrorMessage);
+                    catch (DbEntityValidationException ex)
+                    {
+                        // Retrieve the error messages as a list of strings.
+                        var errorMessages = ex.EntityValidationErrors
+                                .SelectMany(x => x.ValidationErrors)
+                                .Select(x => x.ErrorMessage);
 
-                    // Join the list to a single string.
-                    var fullErrorMessage = string.Join("; ", errorMessages);
+                        // Join the list to a single string.
+                        var fullErrorMessage = string.Join("; ", errorMessages);
 
-                    // Combine the original exception message with the new one.
-                    var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+                        // Combine the original exception message with the new one.
+                        var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
 
-                    // Throw a new DbEntityValidationException with the improved exception message.
-                    throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
-                }
+                        // Throw a new DbEntityValidationException with the improved exception message.
+                        throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+                    }
 
-                descripcion_basica descripcion = new descripcion_basica();
+                    descripcion_basica descripcion = new descripcion_basica();
+                    descripcion.Numero_de_inventario = tbNumeroRegistro.Text;
                     descripcion.Tipo_de_objeto = tbTipoObjeto.Text;
                     descripcion.Nombre_o_tema = tbNombreTema.Text;
                     descripcion.Autor = tbAutor.Text;
@@ -85,6 +89,7 @@ namespace INAH
                     entities.SaveChanges();
 
                     composicion composicion = new composicion();
+                    composicion.Numero_de_inventario = tbNumeroRegistro.Text;
                     composicion.Materia_prima = tbMaterial.Text;
                     composicion.Tecnica_de_manufactura = tbTecnicaManufactura.Text;
                     composicion.Tecnica_decorativa = tbTecnicaDecorativa.Text;
@@ -92,17 +97,20 @@ namespace INAH
                     entities.SaveChanges();
 
                     adquisiciones adquisicion = new adquisiciones();
+                    adquisicion.Numero_de_inventario = tbNumeroRegistro.Text;
                     adquisicion.Procedencia = tbProcedencia.Text;
                     adquisicion.Metodo_de_adquisicion = tbProcedencia.Text;
                     entities.adquisiciones.Add(adquisicion);
                     entities.SaveChanges();
 
                     ubicaciones ubicacion = new ubicaciones();
+                    ubicacion.Numero_de_inventario = tbNumeroRegistro.Text;
                     ubicacion.Ubicacion_Actual = tbUbicacion.Text;
                     entities.ubicaciones.Add(ubicacion);
                     entities.SaveChanges();
 
                     medidas medidas = new medidas();
+                    medidas.Numero_de_inventario = tbNumeroRegistro.Text;
                     medidas.Alto = float.Parse(tbAlto.Text);
                     medidas.Largo = float.Parse(tbLargo.Text);
                     medidas.Ancho = float.Parse(tbEspesor.Text);
@@ -115,7 +123,6 @@ namespace INAH
                 {
                     MessageBox.Show("update");
                 }
-                
             }
             MessageBox.Show("Operacion exitosa.", "OK", MessageBoxButton.OK);
             this.Close();

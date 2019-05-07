@@ -106,7 +106,7 @@
                                 <Label Content="Número de catálogo:" Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
+                            <TextBox x:Name="tbNumeroCatalogo" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="1" Grid.Row="1">
@@ -114,7 +114,7 @@
                                 <Label Content="Número de registro: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
+                            <TextBox x:Name="tbNumeroRegistro" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
 
                         <DockPanel Grid.Column="2" Grid.Row="1">
@@ -122,7 +122,7 @@
                                 <Label Content="Otros números: " Style="{StaticResource TitleStyle}"/>
                                 <Image Source="img/help.png" Width="12" Height="12" />
                             </StackPanel>
-                            <TextBox Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
+                            <TextBox x:Name="tbOtrosNumeros" Style="{StaticResource TextBoxDetailStyle}" MaxWidth="287" />
                         </DockPanel>
                     </Grid>
 

@@ -25,7 +25,7 @@ namespace INAH
             return text;
         }
 
-        public static Grid GetCollectionsItem(String imageUrl, String title, String buttonText, int id, RoutedEventHandler detailClick, MouseEventHandler mouseEnter, MouseEventHandler mouseLeave)
+        public static Grid GetCollectionsItem(String imageUrl, String title, String buttonText, string id, RoutedEventHandler detailClick, MouseEventHandler mouseEnter, MouseEventHandler mouseLeave)
         {
             Grid frontContainer = new Grid();
             frontContainer.Width = 200;

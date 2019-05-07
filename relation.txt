@@ -15,6 +15,20 @@ epoca -> descripcion basica
 cultura -> descripcion basica
 lugar de origen -> descripcion basica
 
+descripcion visual
+forma -> descripcion
+inscripciones -> descripcion
+descripcion -> descripcion
+observaciones -> descripcion
+
+acervo
+tipo -> descripcion
+
+conservacion
+estado -> descripcion
+
+avaluo -> descripcion
+
 composicion
 material constutivo -> composicion_materia prima
 tecnica de manufactura-> composicion_tecnica
@@ -35,16 +49,5 @@ espesor -> medidas
 diametro -> medidas
 peso -> medidas
 
-descripcion visual
-forma -> descripcion
-inscripciones -> descripcion
-descripcion -> descripcion
-observaciones -> descripcion
-
-acervo
-tipo -> descripcion
-
-conservacion
-estado -> descripcion
-
-avaluo -> descripcion
+numero de inventario -> numero de catalogo
+? -> numero de registro

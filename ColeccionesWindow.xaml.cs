@@ -24,18 +24,24 @@ namespace INAH
 
         private void LoadData()
         {
+            WrapPanelColecciones.Children.Add(Utils.GetCollectionsItem(@"img\anadir.png", "Agregar elemento", "Agregar", "-1", detailBtn_Click, mouse_enter, mouse_leave));
+
+
             //Get items from database by user
-            String[] tittles = { "Elemento1", "Elemento2", "Elemento3", "Elemento4", "Elemento5" };
-
-            int pi = 1;
-
-            WrapPanelColecciones.Children.Add(Utils.GetCollectionsItem(@"img\anadir.png", "Agregar elemento", "Agregar", -1, detailBtn_Click, mouse_enter, mouse_leave));
-
-            foreach (String title in tittles)
+            using (var entities = new DataEntities())
             {
-                WrapPanelColecciones.Children.Add(Utils.GetCollectionsItem(@"img\p"+pi+".jpg", "titulo" + pi, "Mostrar detalle", pi, detailBtn_Click, mouse_enter, mouse_leave));
-                pi++;
+                
+                int pi = 1;
+                foreach (piezas pieza in entities.piezas.ToList())
+                {
+                    descripcion_basica desc = entities.descripcion_basica.Where(d => d.Numero_de_inventario == pieza.Numero_de_inventario).ToList()[0];
+                    WrapPanelColecciones.Children.Add(Utils.GetCollectionsItem(@"img\p"+pi+".jpg", desc.Nombre_o_tema, "Mostrar detalle", pieza.Numero_de_inventario, detailBtn_Click, mouse_enter, mouse_leave));
+                    pi = pi < 5 ? pi+1 : 1;
+                }
             }
+
+
+
 
             //Add a final item to add a new element
         }
@@ -43,7 +49,7 @@ namespace INAH
         private void detailBtn_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
-            DetalleWindow detalleWindow = new DetalleWindow((int)button.Tag);
+            DetalleWindow detalleWindow = new DetalleWindow(int.Parse(button.Tag.ToString()));
             this.Close();
             detalleWindow.Show();
         }
